@@ -2,13 +2,13 @@ cmake_minimum_required(VERSION 3.22)
 project(shared_memory_cpp)
 
 set(CMAKE_CXX_STANDARD 20)
-
+set(EXEC_NAME shm_mut.out)
+#set up the lib folder
 #add_subdirectory(lib)
 
-add_executable(shmm.out main.cpp)
-add_executable(buf.out main2.cpp)
+add_executable(${EXEC_NAME} main.cpp)
 
-# configura o caminho para a biblioteca BOOST
+# set up the Boost library root folder
 if (DEFINED $ENV{ROOT_BOOST})
     set(ROOT_BOOST $ENV{ROOT_BOOST})
 else()
@@ -16,8 +16,8 @@ else()
 endif()
 
 message(STATUS "Caminho da biblioteca BOOST configurado para: ${ROOT_BOOST}")
+target_include_directories(${EXEC_NAME} PUBLIC ${ROOT_BOOST})
 
-target_include_directories(shmm.out PUBLIC ${ROOT_BOOST})
-target_include_directories(buf.out PUBLIC ${ROOT_BOOST})
-#target_link_libraries(shmm.out PUBLIC GroupCommLib)
+# Add the library to shared memory executable compilation
+#target_link_libraries(${EXEC_NAME} PUBLIC IPCLib)
 

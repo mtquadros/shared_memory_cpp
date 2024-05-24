@@ -1,3 +1,4 @@
-add_library(GroupCommLib)
+add_library(IPCLib)
 
-target_sources(GroupCommLib PUBLIC group.cpp)
+target_sources(IPCLib PUBLIC src/messageBox.cpp)
+target_include_directories(IPCLib PUBLIC include)
