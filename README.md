@@ -20,4 +20,6 @@
 
 ### Demonstration:
 > The demonstration below shows two terminals, each one is running the program.
+> Since the program properly sincronize the region critical it's suppose that
+> each terminal never shows the same number.
 ![Demonstration](./sync_demo.gif)
