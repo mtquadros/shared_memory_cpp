@@ -4,6 +4,7 @@
 > - `Boost` Library;
 > -  GNU GCC version 11 or later (C++ standard 11 or later);
 > - `CMake` version 3.22 or later;
+> -  GNU Make 4.3 or later;
 > - `Ubuntu` version 22.04.4 LTS or later.
 
 ## Building steps:
