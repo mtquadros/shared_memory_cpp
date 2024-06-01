@@ -24,16 +24,17 @@ cmake .. && make
 
 ## Progress of this project:
 
-### Today:
-> Until now (May 23, 2024) is implemented an executable named `shm_mut.out` 
-> which increments an integer variable to each period of 2000ms for 15 times.
-> The period between the increments allows the user to observe the 
-> sincronization once the result ouput is pointed to the default output 
-> screen.
-
-### Next step:
-> Content in progress...
-
+### IPC by Shared Memory and Mutex mechanism
+ 
+> Until now (May 23, 2024) it was implemented a interprocess communication
+> example using the mutex mechanism to garantee the exclusive access to
+> critical region to each process.
+>
+> This example is not eficient using mutex because the process
+> is forced to sleep for 2s (that waste processing time) to get
+> time enough to another process enter in the critical region and show this
+> behaviour.
+>
 ### Demonstration:
 > The demonstration below shows two terminals, each one is running the program.
 > 
@@ -41,3 +42,6 @@ cmake .. && make
 > both terminals never shows the same number.
 
 ![Demonstration](./sync_demo.gif)
+
+### Serialization by Semaphore mechanism:
+> In progress...
