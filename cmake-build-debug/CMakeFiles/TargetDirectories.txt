@@ -1,4 +1,0 @@
-/home/dev/Projects/shared_memory/cmake-build-debug/CMakeFiles/shmm.out.dir
-/home/dev/Projects/shared_memory/cmake-build-debug/CMakeFiles/buf.out.dir
-/home/dev/Projects/shared_memory/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/dev/Projects/shared_memory/cmake-build-debug/CMakeFiles/rebuild_cache.dir
