@@ -1,4 +1,4 @@
-# Process sincronization using `Shared Memory` and `Boost` library in a `Linux` enviroment
+# Process sincronization using `Shared Memory`, `Mutex` and `Semaphore` from `Boost` library in a `Linux` enviroment
 
 ## Requirements used on this project (earlier versions was not tested):
 > - `Boost` Library;
@@ -24,17 +24,16 @@ cmake .. && make
 
 ## Progress of this project:
 
-### IPC by Shared Memory and Mutex mechanism
+### IPC by Shared Memory and Mutex,Semaphore mechanisms
  
-> Until now (May 23, 2024) it was implemented a interprocess communication
-> example using the mutex mechanism to garantee the exclusive access to
-> critical region to each process.
->
-> This example is not eficient using mutex because the process
-> is forced to sleep for 2s (that waste processing time) to get
+> This example we use shared memory technique to implement a buffer of 10 integers as a 
+> comunication channel between `producer.out` and `consumer.out` processes.
+> 
+> 
+`../interprocess_comm/sharedmm/include/sharedmm/shared_mem_buffer.h` header file
 > time enough to another process enter in the critical region and show this
 > behaviour.
->
+> 
 ### Demonstration:
 > The demonstration below shows two terminals, each one is running the program.
 > 

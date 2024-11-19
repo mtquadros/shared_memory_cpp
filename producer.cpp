@@ -3,18 +3,19 @@
 #include <iostream>
 #include <thread>
 
-#include "anonymous_semaphore.h"
+#include <sharedmm/shared_mem_buffer.h>
 
 using namespace boost::interprocess;
+/******************************************************************
+ * Important Note:
+ * As the project is on working, this code is not using the library in folder lib_ipc yet.
+ * This code is a example of using shared memory with Boost library
+*************************************************************/
 
 int main ()
 {
-    //Remove shared memory on construction and destruction
-    struct shm_remove
-    {
-        shm_remove() { shared_memory_object::remove("MySharedMemory"); }
-        ~shm_remove(){ shared_memory_object::remove("MySharedMemory"); }
-    } remover;
+    // Automaticaly leak shared memory
+    shared_memory_provider shmm_garbage_collector ("MySharedMemory");
 
     //Create a shared memory object.
     shared_memory_object shm
@@ -44,7 +45,7 @@ int main ()
     for(int i = 0; i < NumMsg; ++i){
         data->nempty.wait();
         data->mutex.wait();
-        std::this_thread::sleep_for(std::chrono::seconds(2));
+        std::this_thread::sleep_for(std::chrono::milliseconds(200));
         std::cout << "Produz item : " << i << std::endl;
         data->items[i % shared_memory_buffer::NumItems] = i;
         data->mutex.post();
